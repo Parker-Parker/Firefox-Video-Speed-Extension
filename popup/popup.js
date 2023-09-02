@@ -18,16 +18,24 @@ function listenForClicks() {
         * then get the beast URL and
         * send a "beastify" message to the content script in the active tab.
         */
+        let url = 2.5;
         function beastify(tabs) {
-            // browser.tabs.insertCSS({ code: hidePage }).then(() => {
-                const url = 2.5;
-                browser.tabs.sendMessage(tabs[0].id, {
-                    command: "beastify",
-                    beastURL: url,
-                });
-            // });
-        }
+            // document.querySelector("#playback-speed").getAttribute("value")
+            // var url = document.querySelector("#playback-speed").getAttribute("valid");
+            // var url = document.querySelector("#playback-speed").classList.contains("valid") ? document.querySelector("#playback-speed").getAttribute("value"):2.5;
+            // var url = document.querySelector("#playback-speed").getAttribute("valid") ? document.querySelector("#playback-speed").getAttribute("value"):2.5;
+            // url = parseFloat(document.querySelector("#playback-speed").getAttribute("value"));
+            temp = document.querySelector("#playback-speed").getAttribute("value");
+            url = parseFloat(temp);
+            // url = isNaN(url) ? 1 :url;
+            // document.querySelector("#playback-speed").setAttribute("value", url+1);
+            browser.tabs.sendMessage(tabs[0].id, {
+                command: "beastify",
+                beastURL: url
+            });
+            document.querySelector("#debug-thing").setAttribute("innerText", " Temp: "+temp+" TabID: "+tabs[0].id+" url: "+url) 
 
+        }
 
         /**
         * Just log the error to the console.
