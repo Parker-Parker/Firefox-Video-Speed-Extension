@@ -19,7 +19,7 @@
   "browser_action": {
     "default_icon": "icons/border-48.png",
     "default_title": "Beastify",
-    "default_popup": "popup/choose_beast.html"
+    "default_popup": "popup/popup.html"
   },
 
   "content_scripts": [
