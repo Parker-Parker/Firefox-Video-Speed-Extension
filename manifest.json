@@ -1,0 +1,31 @@
+
+
+  
+{
+  "manifest_version": 2,
+  "name": "Video Speed Changer",
+  "version": "1.0",
+
+  "description": "Changes the playback speed of videos",
+  "homepage_url": "https://github.com/Parker-Parker/Firefox-Video-Speed-Extension",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+
+  "permissions": ["activeTab"],
+
+  "browser_action": {
+    "default_icon": "icons/border-48.png",
+    "default_title": "Beastify",
+    "default_popup": "popup/choose_beast.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["VideoSpeedChanger.js"]
+    }
+  ]
+}
